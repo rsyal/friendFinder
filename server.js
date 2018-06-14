@@ -7,7 +7,7 @@ var path = require('path');
 
 // Sets up the Express App
 // =============================================================
-var app = express();                 // define our app using express
+var app = express();                        // define our app using express
 
 var port = process.env.PORT || 8080;        // define our port
 
