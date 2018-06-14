@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Friend Finder</title>
+  <!-- Latest compiled and minified CSS & JS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Friend Finder</h1>
+      <h3>Survey Questions</h3>
+      <a href="home.html"><button class="btn btn-danger btn-lg"><span class="fa fa-table"></span> Homepage</button></a>
+    </div>
+      <hr>
+     
+
+      <div class="container">
+            <h3>About You</h3>
+            <h4>Name (required)</h4>
+              <input type="text" id=name class="form-control" required>
+            <h4>Link to Photo Image (required)</h4>
+              <input type="text" id="photo" class="form-control" required>
+              <hr>
+
+
+          <h3>Question 1</h3>
+          <h4>You love the great outdoors.</h4> 
+          <select class="mdb-select" id="Q1">
+            <option value="" disabled selected>Choose your option</option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+          </select>  
+
+          <h3>Question 2</h3>
+          <h4>You are a couch potato.</h4> 
+          <select class="mdb-select" id="Q2">
+              <option value="" disabled selected>Choose your option</option>
+              <option value="1">1 (Strongly Disagree)</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5 (Strongly Agree)</option>
+            </select>   
+
+          <h3>Question 3</h3>
+          <h4>You love to eat junk food.</h4> 
+          <select class="mdb-select" id="Q3">
+              <option value="" disabled selected>Choose your option</option>
+              <option value="1">1 (Strongly Disagree)</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5 (Strongly Agree)</option>
+            </select>    
+
+          <h3>Question 4</h3>
+          <h4>You only fly on private jets.</h4> 
+          <select class="mdb-select" id="Q4">
+              <option value="" disabled selected>Choose your option</option>
+              <option value="1">1 (Strongly Disagree)</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5 (Strongly Agree)</option>
+            </select>  
+          
+      </div>
+      <button class="btn btn-danger btn-small" type="submit" name="action" id="submitButton">Submit
+        <i class="material-icons right"></i>
+      </button>
+      <footer class="footer">
+
+        <div class="container">
+          <p> 
+              
+              <a href="/api/friends">API Friends List</a>
+                   | 
+              <a href="https://github.com/rsyal/FriendFinder">Git Hub Repo</a>
+          </p>
+         
+        </div>
+        </footer>      
+           
+      <!-- Modal Displaying Closest Friend Match -->
+	<div id="modal1" class="modal">
+		<div class="modal-content">
+			<h4>Closest Friend Match</h4>
+			<div class="divider"></div>
+			<h5 id="userMatch"></h5>
+			<img id="userMatchImage" class="materialboxed" width="650" src="">
+		</div>
+		
+	</div>
+
+	<script type="text/javascript">
+		// $(document).ready(function() {
+
+    //   $('.mbd-select').material_select();
+      
+		// 	$('.modal').modal({
+		// 		dismissible: false, // Modal can be dismissed by clicking outside of the modal
+		// 		opacity: .5, // Opacity of modal background
+		// 		inDuration: 300, // Transition in duration
+		// 		outDuration: 200, // Transition out duration
+		// 		startingTop: '4%', // Starting top style attribute
+		// 		endingTop: '10%' // Ending top style attribute
+		// 	});
+		// });
+		// Activate submit button
+		$('#submitButton').on('click', function(event) {
+			event.preventDefault();
+			// Gather user inputs
+			var userInput = {
+				name: $('#name').val().trim(),
+				photo: $('#photo').val().trim(),
+				scores:[
+					$('#Q1').val().trim(),
+					$('#Q2').val().trim(),
+					$('#Q3').val().trim(),
+					$('#Q4').val().trim(),
+				
+				]
+			};
+      console.log('userInput = ' + JSON.stringify(userInput));
+      
+			
+		});
+	</script>      
+
+
+
+    
+
+  
+
+</body>
+</html>
